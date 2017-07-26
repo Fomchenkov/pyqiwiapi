@@ -1,3 +1,6 @@
 __pycache__
 *.pyc
 *.db
+/dist/
+/*.egg-info
+test.py

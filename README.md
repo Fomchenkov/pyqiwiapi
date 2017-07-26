@@ -8,14 +8,21 @@ $ pip install pyqiwiapi
 
 # Usage
 
-```
-from pyqiwiapi import Qiwi
+```python
+from pyqiwiapi import QiwiApi
 
-login = 'qiwi-login'
-password = 'qiwi-password'
-qiwi = Qiwi(login, password)
-qiwi.get_tgt_ticket() # Get tgt Qiwi ticket
-qiwi.get_st_ticket() # Get st Qiwi ticket
-res = qiwi.get_payment_history({'rows': 1}) # Get payment history
+qiwi_login = '<login>'
+qiwi_password = '<password>'
+qiwi = QiwiApi(qiwi_login, qiwi_password)
+qiwi.get_tgt_ticket()
+qiwi.get_st_ticket()
+res = qiwi.get_wallet_balance() # Get balance
 print(res)
+
+# Also you can use this methods.
+print(qiwi.get_payments_stat(
+	startDate='2017-04-12T00:00:00Z',
+	endDate='2017-07-11T00:00:00Z'
+))
+print(qiwi.get_payments_history(rows=1, operation="IN"))
 ```
